@@ -5,13 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/menuOverlay.css">
+    <link rel="stylesheet" href="./css/colorClasses.css">
+    <link rel="icon" type="image/png" href="./assets/favicon.png">
 </head>
 <body>
     <div class="container">
         <div id="menu" class="menu_container">
             <div class="menu_title"><h1>Repair Rampage</h1></div>
+            <div class="devider"></div>
             <div id="stats" class="stats_container">The stats content has failed to load. Please press ctrl + f5 to reload.</div>
-
+            <div class="devider"></div>
+            
             <div id="options_container" class="options_container">
                 <div id="help_menu" class="menu_button">
                     <span class="menu_btn_icon">
@@ -31,7 +36,7 @@
                     </span>
                     <span class="menu_btn_text">Save Game</span>
                 </div>
-                <div id="settings" class="menu_button">
+                <div id="settings_menu" class="menu_button">
                     <span class="menu_btn_icon">
                         <svg viewBox="0 0 24 24" aria-hidden="true">
                             <path fill="currentColor"
@@ -45,6 +50,22 @@
 
 
         <div id="game" class="game_container">The game content has failed to load. Please press ctrl + f5 to reload.</div>
+    </div>
+
+    <div id="menu_overlay" class="menu_overlay_container">
+        <div id="menu_overlay_screen" class="menu_overlay_screen">
+            <div id="menu_overlay_header" class="menu_overlay_header">
+                <h1 id="menu_overlay_title">Title</h1>
+                <div id="close_menu_overlay" class="close_menu_overlay">
+                    <svg viewBox="0 0 24 24" width="37" height="37">
+                        <path fill="currentColor"
+                            d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                    </svg>
+                </div>
+            </div>
+            <div class="devider"></div>
+            <div id="menu_overlay_content" class="menu_overlay_content">Resources failed to load. Please press ctrl + f5 to reload.</div>
+        </div>
     </div>
 
     <script type="module" src="./js/main.js"></script>

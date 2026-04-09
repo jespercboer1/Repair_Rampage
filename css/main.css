@@ -29,7 +29,7 @@ h1, h2, h3 {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
     box-shadow: #ff6600 0px 0px 10px 6px;
     position: relative;
     z-index: 1;
@@ -41,6 +41,7 @@ h1, h2, h3 {
 }
 
 .stats_container {
+    width: 70%;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -70,6 +71,7 @@ h1, h2, h3 {
     font-size: 20px;
     font-weight: bold;
     user-select: none;
+    box-shadow: #111111 0px 0px 6px 2px;
     transition: all 0.2s ease-in-out;
     position: relative;
     white-space: nowrap;
@@ -77,11 +79,11 @@ h1, h2, h3 {
 
 .menu_button:hover {
     background-color: #555555;
+    color: #ff6600;
     box-shadow: #ff6600 0px 0px 6px 2px;
 }
 
 .menu_button:active {
-    background-color: #555555;
     box-shadow: inset #111111 0px 0px 2px 2px;
 }
 
@@ -116,4 +118,10 @@ h1, h2, h3 {
 .stat_label {
     font-size: 18px;
     font-weight: bold;
+}
+
+.devider {
+    width: 80%;
+    height: 1px;
+    background-color: #ff6600;
 }

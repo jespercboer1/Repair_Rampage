@@ -18,13 +18,15 @@ export function render() {
   `;
 
   document.getElementById("stats").innerHTML = `
-    <p>Day ${gameState.day}</p>
-    <p>Time: ${gameState.time.hour.toString().padStart(2, "0")}:${gameState.time.minute.toString().padStart(2, "0")}</p>
-    <p>${scene.location}</p>
-    <p><span class="stat_label">Money:</span> $${gameState.money.toFixed(2)}</p>
-    <p><span class="stat_label">Stamina:</span> ${gameState.stamina}</p>
-    <p><span class="stat_label">Level:</span> ${gameState.shop.level}</p>
-    <p><span class="stat_label">Reputation:</span> ${gameState.shop.reputation}</p>
-    <p><span class="stat_label">Debt:</span> $${gameState.debt.toFixed(2)}</p>
+    <p><span class="stat_label">Day ${gameState.day}</span></p>
+    <p><span class="stat_label">${gameState.time.hour.toString().padStart(2, "0")}:${gameState.time.minute.toString().padStart(2, "0")}</span></p>
+    <p><span class="stat_label orange">${scene.location}</span></p>
+    <div class="devider"></div>
+    <p><span class="stat_label green">Money:</span> $${gameState.money.toFixed(2)}</p>
+    <p><span class="stat_label blue">Stamina:</span> ${gameState.stamina}</p>
+    <p><span class="stat_label blue">Reputation:</span> ${gameState.shop.reputation}</p>
+    <p><span class="stat_label red">Debt:</span> $${gameState.debt.toFixed(2)}</p>
   `;
+
+  document.getElementById("menu_overlay").style.display = "none";
 }
