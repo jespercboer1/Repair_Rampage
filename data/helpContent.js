@@ -12,7 +12,7 @@ export const helpContent = `
         <li><span style="color: #00af00;"><strong>Green:</strong></span> Everything related to money</li>
         <li><span style="color: #ff00ff;"><strong>Pink:</strong></span> Clues / Hints to solve puzzles and challenges</li>
         <li><span style="color: #0059ff;"><strong>Blue:</strong></span> Your stats or progress</li>
-        <li><span style="color: #00ffff;"><strong>Cyan:</strong></span> Important items or concepts</li>
+        <li><span style="color: #00ffff;"><strong>Cyan:</strong></span> Actions or events</li>
         <li><span style="color: #4eff4e;"><strong>Lime:</strong></span> Positive outcomes or benefits</li>
         <li><span style="color: #ff2525;"><strong>Red:</strong></span> Negative outcomes or consequences</li>
     </ul>

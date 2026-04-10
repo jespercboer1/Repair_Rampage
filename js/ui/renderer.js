@@ -6,15 +6,21 @@ export function render() {
 
   const optionsHTML = scene.options
     .filter(opt => !opt.condition || opt.condition(gameState))
-    .map((opt, i) =>
-      `<button data-index="${i}">${opt.text}</button>`
-    )
-    .join("<br>");
+    .map((opt, i) => {
+      if (opt.action) {
+        return `<button class="game_option_action" data-index="${i}">${opt.text}</button>`;
+      }
+      if (opt.goto) {
+        return `<button class="game_option_goto" data-index="${i}">${opt.text}</button>`;
+      }
+      return ''; // Default case if neither action nor goto
+    })
+    .join("");
 
   document.getElementById("game").innerHTML = `
     <h2>${scene.title}</h2>
     <p>${scene.text}</p>
-    ${optionsHTML}
+    <div class="game_options">${optionsHTML}</div>
   `;
 
   document.getElementById("stats").innerHTML = `
