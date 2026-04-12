@@ -1,4 +1,4 @@
-name: Deploy Website
+name: Deploy to xtgrsandbox.nl
 
 on:
   push:
