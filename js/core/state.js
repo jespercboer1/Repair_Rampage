@@ -1,3 +1,5 @@
+import { ITEMS } from "../data/items.js";
+
 export const gameState = {
   day: 1,
   time: {
@@ -16,6 +18,19 @@ export const gameState = {
   },
 
   employees: [],
+
+  shopInventory: {
+    wrench: 5,
+    tire: 10,
+    engine: 2,
+    door: 4,
+    battery: 6,
+    oil: 20
+  },
+
+  personalInventory: {
+    phone: 1
+  },
 
   currentScene: "garage",
 

@@ -22,6 +22,7 @@ h1, h2, h3 {
     min-height: 100vh;
 }
 
+/* Main content styles */
 .menu_container {
     width: 300px;
     padding: 20px;
@@ -49,6 +50,7 @@ h1, h2, h3 {
     text-align: center;
 }
 
+/* Menu options styles */
 .options_container {
     display: flex;
     width: 100%;
@@ -104,17 +106,11 @@ h1, h2, h3 {
 }
 
 .menu_btn_text {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.game_container {
     flex: 1;
-    padding: 30px;
-    background-color: #111111;
+    text-align: center;
 }
 
+/*menu items styles*/
 .stat_label {
     font-size: 18px;
     font-weight: bold;
@@ -124,4 +120,11 @@ h1, h2, h3 {
     width: 80%;
     height: 1px;
     background-color: #ff6600;
+}
+
+/* Game container styles */
+.game_container {
+    flex: 1;
+    padding: 30px;
+    background-color: #111111;
 }

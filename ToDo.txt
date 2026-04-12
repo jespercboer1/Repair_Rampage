@@ -1,3 +1,1 @@
-1. layout
-2. page scrolling
-3. stats
+make sertain parts only work on sertain parts (compatability)

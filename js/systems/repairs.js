@@ -7,3 +7,9 @@ export function repairCar() {
 
   advanceTurn();
 }
+
+export function buyParts() {
+  gameState.money -= 100;
+  // TODO: Add parts to inventory or something
+  advanceTurn();
+}

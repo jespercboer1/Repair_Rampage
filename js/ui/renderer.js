@@ -1,28 +1,46 @@
 import { getCurrentScene } from "../core/sceneManager.js";
 import { gameState } from "../core/state.js";
+import { handleOption } from "./buttons.js";
+import { ITEMS } from "../data/items.js";
 
 export function render() {
+  // Main scene
   const scene = getCurrentScene();
 
   const optionsHTML = scene.options
-    .filter(opt => !opt.condition || opt.condition(gameState))
     .map((opt, i) => {
-      if (opt.action) {
-        return `<button class="game_option_action" data-index="${i}">${opt.text}</button>`;
+      if (!opt.condition || opt.condition(gameState)) {
+        if (opt.action) {
+          return `<button class="game_option_action" data-index="${i}">${opt.text}</button>`;
+        }
+        if (opt.goto) {
+          return `<button class="game_option_goto" data-index="${i}">${opt.text}</button>`;
+        }
       }
-      if (opt.goto) {
-        return `<button class="game_option_goto" data-index="${i}">${opt.text}</button>`;
-      }
-      return ''; // Default case if neither action nor goto
+      return '';
     })
+    .filter(html => html !== '')
     .join("");
 
+  // Main content
   document.getElementById("game").innerHTML = `
     <h2>${scene.title}</h2>
     <p>${scene.text}</p>
     <div class="game_options">${optionsHTML}</div>
   `;
 
+  // Attach event listener to game container for delegation (only once)
+  if (!document.getElementById("game").hasAttribute("data-listener-attached")) {
+    document.getElementById("game").addEventListener("click", (e) => {
+      if (e.target.matches('.game_option_action, .game_option_goto')) {
+        const index = parseInt(e.target.dataset.index);
+        handleOption(index);
+      }
+    });
+    document.getElementById("game").setAttribute("data-listener-attached", "true");
+  }
+
+  // Statistics
   document.getElementById("stats").innerHTML = `
     <p><span class="stat_label">Day ${gameState.day}</span></p>
     <p><span class="stat_label">${gameState.time.hour.toString().padStart(2, "0")}:${gameState.time.minute.toString().padStart(2, "0")}</span></p>
@@ -34,5 +52,6 @@ export function render() {
     <p><span class="stat_label red">Debt:</span> $${gameState.debt.toFixed(2)}</p>
   `;
 
+  // Ensure menu overlay is hidden on render
   document.getElementById("menu_overlay").style.display = "none";
 }
