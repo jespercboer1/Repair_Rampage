@@ -1,3 +1,0 @@
-make sertain parts only work on sertain parts (compatability)
-
-test test test
