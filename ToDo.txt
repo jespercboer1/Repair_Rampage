@@ -1,0 +1,16 @@
+an option is almost always a goto, but can have an action to (in scenes)
+
+the action changes data via a library with all the data (time, stamina, money) and does the apropiate calculations
+
+the goto changes stamina and time etc and changes the scene
+
+every button needs a goto to make sure the display shows the updated stats, goto can be to the same scene
+
+
+
+turnmanager.js, debt.js, employees.js, turnSystem.js files are useless for new system designed above
+
+
+
+if a goto is changed based on flags, make 2 buttons in the scene via conditions one for flag true and other for flag false
+then it will seem like 1 button goes to 2 different scenes

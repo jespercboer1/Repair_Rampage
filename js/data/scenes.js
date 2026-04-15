@@ -7,11 +7,16 @@ export const SCENES = {
     options: [
       {
         text: "Repair a customer's car",
-        action: "repairCar"
+        action: "repairCar",
+        // flags: { repairedFirstCar: true } 
       },
       {
         text: "Go to Parts Store",
-        goto: "partsStore"
+        goto: "partsStore",
+        // condition: state => state.flags.repairedFirstCar
+        // flags: {flagName: value} (this is a new flag, not a condition, so it will be set when you click the option, regardless of the condition)
+        // stamina: -10
+        // time: 30
       }
     ]
   },
