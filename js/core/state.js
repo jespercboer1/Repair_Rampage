@@ -1,5 +1,3 @@
-import { ITEMS } from "../data/items.js";
-
 export const gameState = {
   day: 1,
   time: {

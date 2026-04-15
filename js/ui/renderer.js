@@ -1,7 +1,6 @@
 import { getCurrentScene } from "../core/sceneManager.js";
 import { gameState } from "../core/state.js";
 import { handleOption } from "./buttons.js";
-import { ITEMS } from "../data/items.js";
 
 export function render() {
   // Main scene
@@ -13,7 +12,7 @@ export function render() {
         if (opt.action) {
           return `<button class="game_option_action" data-index="${i}">${opt.text}</button>`;
         }
-        if (opt.goto) {
+        else if (opt.goto) {
           return `<button class="game_option_goto" data-index="${i}">${opt.text}</button>`;
         }
       }
@@ -21,13 +20,6 @@ export function render() {
     })
     .filter(html => html !== '')
     .join("");
-
-  // Main content
-  document.getElementById("game").innerHTML = `
-    <h2>${scene.title}</h2>
-    <p>${scene.text}</p>
-    <div class="game_options">${optionsHTML}</div>
-  `;
 
   // Attach event listener to game container for delegation (only once)
   if (!document.getElementById("game").hasAttribute("data-listener-attached")) {
@@ -39,6 +31,13 @@ export function render() {
     });
     document.getElementById("game").setAttribute("data-listener-attached", "true");
   }
+
+  // Main content display
+  document.getElementById("game").innerHTML = `
+    <h2>${scene.title}</h2>
+    <p>${scene.text}</p>
+    <div class="game_options">${optionsHTML}</div>
+  `;
 
   // Statistics
   document.getElementById("stats").innerHTML = `

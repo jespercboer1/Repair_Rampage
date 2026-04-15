@@ -4,6 +4,7 @@ export const ITEMS = {
     description: "A basic tool for repairs",
     cost: 20,
     sellValue: 15,
+    compatibility: {},
     type: "tool"
   },
   tire: {
@@ -11,6 +12,7 @@ export const ITEMS = {
     description: "Replacement tire for cars",
     cost: 50,
     sellValue: 35,
+    compatibility: {size: "18", type: "all-season"},
     type: "part"
   },
   engine: {
@@ -18,6 +20,7 @@ export const ITEMS = {
     description: "Car engine component",
     cost: 200,
     sellValue: 150,
+    compatibility: {},
     type: "part"
   },
   door: {
@@ -25,6 +28,7 @@ export const ITEMS = {
     description: "Car door replacement",
     cost: 100,
     sellValue: 75,
+    compatibility: {},
     type: "part"
   },
   battery: {
@@ -32,6 +36,7 @@ export const ITEMS = {
     description: "Car battery for starting engines",
     cost: 80,
     sellValue: 60,
+    compatibility: {},
     type: "part"
   },
   oil: {
@@ -39,6 +44,7 @@ export const ITEMS = {
     description: "Engine oil for maintenance",
     cost: 30,
     sellValue: 20,
+    compatibility: {},
     type: "consumable"
   },
   phone: {
@@ -46,6 +52,7 @@ export const ITEMS = {
     description: "Your personal mechanic's phone for calls and contacts.",
     cost: 0,
     sellValue: 0,
+    compatibility: {},
     type: "personal"
   }
   // Add more items here as needed
