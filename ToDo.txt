@@ -14,3 +14,8 @@ turnmanager.js, debt.js, employees.js, turnSystem.js files are useless for new s
 
 if a goto is changed based on flags, make 2 buttons in the scene via conditions one for flag true and other for flag false
 then it will seem like 1 button goes to 2 different scenes
+
+
+
+- fix display bug in inventory overlays
+- make the inventory item a string (the whole inventory is a list (ul, li))
