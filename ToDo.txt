@@ -19,3 +19,9 @@ then it will seem like 1 button goes to 2 different scenes
 
 - fix display bug in inventory overlays
 - make the inventory item a string (the whole inventory is a list (ul, li))
+
+
+
+connect saveSystem to the save button
+
+make multiple save slots
