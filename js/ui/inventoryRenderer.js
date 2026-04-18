@@ -7,10 +7,9 @@ function renderInventory(inventory) {
         if (qty > 0 && ITEMS[key]) {
             html += `
                 <div class="inventory-item">
-                    <img src="assets/images/items/${key}.png" alt="${ITEMS[key].name}">
-                    <span>${qty}</span>
+                    <div class="item-name">${ITEMS[key].name}</div>
+                    <div class="item-qty">x${qty}</div>
                     <div class="tooltip">
-                        <span class="tooltip-title">${ITEMS[key].name}</span><br>
                         ${ITEMS[key].description}
                         ${ITEMS[key].compatibility && Object.keys(ITEMS[key].compatibility).length ? 
                             `<br>${Object.entries(ITEMS[key].compatibility).map(([compatKey, compatValue]) => `${compatKey}: ${compatValue}`).join('<br>')}` : ''}<br>

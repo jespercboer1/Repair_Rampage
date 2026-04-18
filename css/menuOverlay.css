@@ -55,7 +55,6 @@
 .menu_overlay_content {
     padding: 20px;
     gap: 10px;
-    overflow-y: auto;
 }
 
 .menu_overlay_content li {
