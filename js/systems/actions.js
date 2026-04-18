@@ -1,7 +1,6 @@
 import { gameState } from "../core/state.js";
 import { emit } from "../core/eventBus.js";
 import { actionData } from "../data/actionData.js";
-import * as actions from "./actions.js";  
 
 export function performAction(action) {
   const data = actionData[action];

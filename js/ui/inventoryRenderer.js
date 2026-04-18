@@ -8,8 +8,9 @@ function renderInventory(inventory) {
             html += `
                 <div class="inventory-item">
                     <div class="item-name">${ITEMS[key].name}</div>
-                    <div class="item-qty">x${qty}</div>
+                    <div class="item-qty">x <span class="qty">${qty}</span></div>
                     <div class="tooltip">
+                        <span class="tooltip-title">${ITEMS[key].name}</span><br>
                         ${ITEMS[key].description}
                         ${ITEMS[key].compatibility && Object.keys(ITEMS[key].compatibility).length ? 
                             `<br>${Object.entries(ITEMS[key].compatibility).map(([compatKey, compatValue]) => `${compatKey}: ${compatValue}`).join('<br>')}` : ''}<br>
