@@ -55,9 +55,16 @@
 .menu_overlay_content {
     padding: 20px;
     display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
 .menu_overlay_content li {
     margin-bottom: 3px;
+}
+
+/* save content styles */
+.save_container {
+    display: flex;
+    gap: 20px;
 }

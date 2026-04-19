@@ -1,6 +1,4 @@
-update systemScamatic
+style the save file content
 
-connect saveSystem to the save button
-make multiple save slots
-
-set tooltip obove item
+add autosaves
+make autosaves able to be turned off

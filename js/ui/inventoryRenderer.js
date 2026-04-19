@@ -19,7 +19,7 @@ function renderInventory(inventory) {
             `;
         }
     }
-    return html || '<p>No items in this inventory.</p>';
+    return "<div class=\"inventory-content\">" + html + "</div>" || '<p>No items in this inventory.</p>';
 }
 
 export function getShopInventory() {
