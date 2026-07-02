@@ -6,6 +6,7 @@ const SAVE_SLOTS = [1, 2, 3];
 
 let saveClickHandler = null;
 
+// Helper function to safely parse JSON, returning null on failure
 function parseSave(raw) {
   if (!raw) return null;
 
@@ -16,10 +17,12 @@ function parseSave(raw) {
   }
 }
 
+// Load a save slot and return its data, or null if it doesn't exist or is invalid
 function loadSlot(slot) {
   return parseSave(localStorage.getItem(`save_${slot}`));
 }
 
+// Validate that the loaded data has the necessary structure to be used as game state
 function getPlayableState(data) {
   if (!data || data.day === undefined || !data.time || data.money === undefined) {
     return null;
@@ -40,6 +43,7 @@ function getPlayableState(data) {
   };
 }
 
+// Render the save/load menu content, showing existing saves and their details
 export function renderSaveContent() {
   return `
     <p>Save your current progress. Your game will be saved in your browser's local storage, allowing you to continue where you left off even after closing the game.</p>
@@ -87,6 +91,7 @@ export function renderSaveContent() {
   `;
 }
 
+// Set up event listeners for the save/load menu buttons, ensuring only one listener is active at a time
 export function setupSaveButtons() {
   const container = document.getElementById("menu_overlay_content");
   if (!container) return;
@@ -120,6 +125,7 @@ export function setupSaveButtons() {
   container.addEventListener("click", saveClickHandler);
 }
 
+// Handle saving the game, prompting for a name and confirming overwrites when necessary
 function saveGame(slot) {
   const existing = loadSlot(slot);
   const isEmpty = !existing;
@@ -153,6 +159,7 @@ function saveGame(slot) {
   refreshUI();
 }
 
+// Handle loading a game, validating the data and updating the game state if successful
 function loadGame(slot) {
   const data = getPlayableState(loadSlot(slot));
   if (!data) return false;
@@ -162,11 +169,13 @@ function loadGame(slot) {
   return true;
 }
 
+// Handle deleting a save file, confirming the action with the user before proceeding
 function deleteGame(slot) {
   localStorage.removeItem(`save_${slot}`);
   setTimeout(refreshUI, 0);
 }
 
+// Handle clearing all save files, confirming the action with the user before proceeding
 function clearAllSaves() {
   if (confirm("Are you sure you want to delete ALL save files? This action cannot be undone.")) {
     for (const slot of SAVE_SLOTS) {
@@ -176,6 +185,7 @@ function clearAllSaves() {
   }
 }
 
+// Refresh the save/load menu UI to reflect any changes to the save files, such as new saves or deletions
 function refreshUI() {
   const container = document.getElementById("menu_overlay_content");
   if (!container) return;

@@ -1,4 +1,14 @@
 style the save file content
 
-add autosaves
-make autosaves able to be turned off
+don't hardcode what data is available in save system, if not available use Null or 0 etc.
+
+
+
+
+
+possible settings:
+- configurable colors (stats + ui)
+- popup switch (new save + overwrite + delete + clear (all separate))
+- autosaves switch + interval
+- Reset
+- 
