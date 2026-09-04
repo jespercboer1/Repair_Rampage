@@ -54,10 +54,17 @@
 /* Content styles */
 .menu_overlay_content {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     gap: 10px;
-    overflow-y: auto;
 }
 
 .menu_overlay_content li {
     margin-bottom: 3px;
+}
+
+/* save content styles */
+.save_container {
+    display: flex;
+    gap: 20px;
 }

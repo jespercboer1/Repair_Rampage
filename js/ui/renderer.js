@@ -26,6 +26,7 @@ export function render() {
     document.getElementById("game").addEventListener("click", (e) => {
       if (e.target.matches('.game_option_action, .game_option_goto')) {
         const index = parseInt(e.target.dataset.index);
+        console.log("Option clicked:", index);
         handleOption(index);
       }
     });

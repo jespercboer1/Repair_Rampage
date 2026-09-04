@@ -1,5 +1,6 @@
 import { helpContent } from "../data/helpContent.js";
 import { getShopInventory, getPersonalInventory } from "./inventoryRenderer.js";
+import { renderSaveContent, setupSaveButtons } from "../core/saveSystem.js";
 
 export function setupOverlay() {
     setupMenuButtons();
@@ -40,9 +41,9 @@ function setupMenuButtons() {
     setTimeout(() => overlay.style.opacity = "1", 0);
 
     document.getElementById("menu_overlay_title").innerHTML = "Save Game";
-    document.getElementById("menu_overlay_content").innerHTML = `
-      <p>Game saving is not implemented yet. Please check back in a future update!</p>
-    `;
+    document.getElementById("menu_overlay_content").innerHTML = renderSaveContent();
+
+    setupSaveButtons();
   };
 
   document.getElementById("settings_menu").onclick = () => {

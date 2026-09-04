@@ -1,15 +1,39 @@
 import { gameState } from "../core/state.js";
-import { advanceTurn } from "../core/turnManager.js";
+import { emit } from "../core/eventBus.js";
+import { actionData } from "../data/actionData.js";
 
-export function repairCar() {
-  gameState.money += 120;
-  gameState.shop.reputation += 1;
+export function performAction(action) {
+  const data = actionData[action];
 
-  advanceTurn();
-}
+  if (!data) {
+    console.error("Unknown action:", action);
+    return;
+  }
 
-export function buyParts() {
-  gameState.money -= 100;
-  // TODO: Add parts to inventory or something
-  advanceTurn();
+  // Money
+  if (data.money) {
+    gameState.money += data.money;
+  }
+
+  // Reputation
+  if (data.reputation) {
+    gameState.shop.reputation += data.reputation;
+  }
+
+  // Flags (merge, not replace)
+  if (data.flags) {
+    gameState.flags = {
+      ...gameState.flags,
+      ...data.flags
+    };
+  }
+
+  if (data.inventory) {
+    for (const item in data.inventory) {
+      gameState.shopInventory[item] =
+        (gameState.shopInventory[item] || 0) + data.inventory[item];
+    }
+  }
+
+  emit("STATE_CHANGED");
 }

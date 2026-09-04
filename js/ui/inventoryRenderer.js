@@ -7,8 +7,8 @@ function renderInventory(inventory) {
         if (qty > 0 && ITEMS[key]) {
             html += `
                 <div class="inventory-item">
-                    <img src="assets/images/items/${key}.png" alt="${ITEMS[key].name}">
-                    <span>${qty}</span>
+                    <div class="item-name">${ITEMS[key].name}</div>
+                    <div class="item-qty">x <span class="qty">${qty}</span></div>
                     <div class="tooltip">
                         <span class="tooltip-title">${ITEMS[key].name}</span><br>
                         ${ITEMS[key].description}
@@ -19,7 +19,7 @@ function renderInventory(inventory) {
             `;
         }
     }
-    return html || '<p>No items in this inventory.</p>';
+    return "<div class=\"inventory-content\">" + html + "</div>" || '<p>No items in this inventory.</p>';
 }
 
 export function getShopInventory() {
